@@ -4,6 +4,10 @@ const morgan = require('morgan');
 const app = express();
 const PORT = 3080;
 
+
+//Requestlogger
+app.use(morgan('tiny'));
+
 //Server
 app.listen(PORT, () => {
     console.log(`Server is listening to port ${PORT}`);
