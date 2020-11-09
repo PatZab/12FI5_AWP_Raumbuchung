@@ -7,11 +7,13 @@ const PORT = 3080;
 
 
 //Request Logger
-app.use(morgan('tiny'));
+app.use(morgan('combined'));
 
 app.get('/', (req, res, next) => {
 
 });
+
+
 
 //Server
 app.listen(PORT, () => {
