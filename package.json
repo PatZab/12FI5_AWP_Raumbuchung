@@ -1,0 +1,19 @@
+{
+  "name": "12fi5_awp_raumbuchung",
+  "version": "1.0.0",
+  "description": "Raumbuchungstool für AWP",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatZab/12FI5_AWP_Raumbuchung.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PatZab/12FI5_AWP_Raumbuchung/issues"
+  },
+  "homepage": "https://github.com/PatZab/12FI5_AWP_Raumbuchung#readme"
+}
