@@ -1,12 +1,17 @@
 const express = require('express');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = 3080;
 
 
-//Requestlogger
+//Request Logger
 app.use(morgan('tiny'));
+
+app.get('/', (req, res, next) => {
+
+});
 
 //Server
 app.listen(PORT, () => {
