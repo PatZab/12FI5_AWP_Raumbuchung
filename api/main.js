@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const apiRouter = require('./routers/apiRouter');
 
 const app = express();
 const PORT = 3080;
@@ -9,9 +10,9 @@ const PORT = 3080;
 //Request Logger
 app.use(morgan('combined'));
 
-app.get('/', (req, res, next) => {
-
-});
+//Routers
+//api
+app.use('/api', apiRouter);
 
 
 
