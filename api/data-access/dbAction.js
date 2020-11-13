@@ -7,7 +7,6 @@ const sqlite3 = require('sqlite3')
 const databasePath = './database/' //todo: add database
 
 
-
 const select = {
     /**
      * Method for getting all rows and columns of a given database table
