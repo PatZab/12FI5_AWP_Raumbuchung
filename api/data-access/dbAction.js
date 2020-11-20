@@ -4,7 +4,7 @@
  */
 
 const sqlite3 = require('sqlite3')
-const databasePath = './database/' //todo: add database
+const databasePath = './database/mydb.db' //todo: add database
 
 
 const select = {
