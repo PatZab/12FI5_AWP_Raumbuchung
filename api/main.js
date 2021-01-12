@@ -6,6 +6,9 @@ const apiRouter = require('./routers/apiRouter');
 const app = express();
 const PORT = 3080;
 
+app.get("/hallo", (req, res, next) => {
+    console.log("NICE")
+});
 
 //Request Logger
 app.use(morgan('combined'));
