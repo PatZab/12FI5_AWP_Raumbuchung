@@ -1,0 +1,42 @@
+Select occupancydate,
+ Start_time, 
+ End_time, 
+ location, 
+ area, 
+ roomnumber, 
+ status,
+  username
+ from occupancy
+  INNER JOIN rooms on occupancy."ID Rooms" = rooms.ID
+  INNER JOIN Status on occupancy."ID Status" = status.ID
+  inner join user on occupancy."ID USER" = user.ID
+  where username = X order by occupancy.occupancydate ;
+  
+Delete from occupancy where ID = x;
+
+UPDATE occupancy
+SET occupancydate = 'X',
+ Start_time = 'X', 
+  End_time = 'X', 
+  location = 'X', 
+  area = 'X', 
+  roomnumber = 'X' 
+WHERE  occupancydate = 'Y'and
+ Start_time = 'Y'and 
+ End_time = 'Y'and 
+ location = 'Y'and 
+ area = 'Y'and 
+ roomnumber = 'Y';
+ 
+Select Username,
+Password from Login
+ where Username = 'Usereingabe 1'
+  and Password = 'Usereingabe 2';
+  
+Select rooms, description from rooms; 
+Select Location from rooms; 
+Select area from rooms; 
+
+
+
+
