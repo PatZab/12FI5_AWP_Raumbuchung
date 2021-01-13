@@ -28,7 +28,10 @@ const select = {
 
     occupancy(callback) {
         const db = dbConnection.openDBConnection(databasePath);
-        const sql = `SELECT * FROM`;
+        const sql = `SELECT * FROM Occupancy 
+                        JOIN User ON Occupancy.user_id = User.id
+                        JOIN Rooms ON Occupancy.rooms_id = Rooms.id
+                        JOIN Status ON Occupancy.status_id = Status.id`;
         db.all(sql, (err, rows) => {
             if (err) {
                 callback(err);

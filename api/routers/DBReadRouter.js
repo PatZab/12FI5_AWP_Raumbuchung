@@ -8,6 +8,10 @@ DBReadRouter.get('/login', (req, res, next) => {
     });
 });
 
-DBReadRouter.get
+DBReadRouter.get('/occupancy', (req, res, next) => {
+    dbAction.select.occupancy((err, rows) => {
+        res.send(rows);
+    });
+});
 
 module.exports = DBReadRouter;
