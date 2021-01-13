@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../images/Klassenzimmer.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 35px;
+    border: none;
+    color: white;
+    background: #0040FF;
+}
+
+table {
+    margin-top: 20px;
+    color: white;
+}
+
+.login button {
+    align-self: center;
+}
+
+.logout_btn {
+    width: 120px;
+    align-self: flex-end;
+    margin-right: 20px;
+}
+.book_btn {
+    width: 160px;
+    margin-left: 20px;
+}
+.edit_btn {
+    background-color: yellow;
+    color: black;
+    padding: 5px 10px;
+}
+
+.delete_btn {
+    background-color: red;
+    padding: 5px 10px;
+}
+
+.login{
+    width: 370px;
+    height: 275px;
+    background-color: rgba(128, 128, 128, 0.788);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 149px auto;
+}
+
+h2 {
+    color: white;
+}
+
+.login input {
+    margin-bottom: 20px;
+    width: 160px;
+    border: none;
+    height: 20px;
+    align-self: center;
+}
+
+.personal, .booking {
+    width: 1200px;
+    height: 530px;
+    background-color: rgba(128, 128, 128, 0.788);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 149px auto;
+}
+
+.booking_choice {
+    display: flex;
+    justify-content: space-evenly;
+}
+.booking_choice select {
+    width: 150px;
+}
+
+.booking table {
+    width: 500px;
+    align-self: flex-end;
+}
