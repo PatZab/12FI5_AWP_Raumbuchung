@@ -26,6 +26,19 @@ const select = {
         dbConnection.closeDBConnection(db)
     },
 
+    occupancy(callback) {
+        const db = dbConnection.openDBConnection(databasePath);
+        const sql = `SELECT * FROM`;
+        db.all(sql, (err, rows) => {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null, rows)
+            }
+        });
+        dbConnection.closeDBConnection(db);
+    },
+
     /**
      * Method for getting all rows for specific columns of a given database table
      * @param {String} table - Database table
