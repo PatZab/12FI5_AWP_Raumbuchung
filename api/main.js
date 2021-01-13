@@ -6,6 +6,8 @@ const apiRouter = require('./routers/apiRouter');
 const app = express();
 const PORT = 3080;
 
+app.use(express.static('../front-app/template'));
+
 app.get("/hallo", (req, res, next) => {
     console.log("NICE")
 });
@@ -16,8 +18,6 @@ app.use(morgan('combined'));
 //Routers
 //api
 app.use('/api', apiRouter);
-
-
 
 //Server
 app.listen(PORT, () => {
