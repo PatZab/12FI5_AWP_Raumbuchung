@@ -6,7 +6,7 @@ const apiRouter = require('./routers/apiRouter');
 const app = express();
 const PORT = 3080;
 
-app.use(express.static('../front-app/template'));
+app.use(express.static('../front-app'));
 
 app.get("/hallo", (req, res, next) => {
     console.log("NICE")

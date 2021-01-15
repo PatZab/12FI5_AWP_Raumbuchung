@@ -26,6 +26,10 @@ const select = {
         dbConnection.closeDBConnection(db)
     },
 
+    /**
+     * Method for reading the whole table "Occupancy" with all linked tables joined
+     * @param {callback} callback - Callback function for processing table data
+     */
     occupancy(callback) {
         const db = dbConnection.openDBConnection(databasePath);
         const sql = `SELECT * FROM Occupancy 
