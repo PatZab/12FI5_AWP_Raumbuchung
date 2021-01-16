@@ -32,7 +32,19 @@ const select = {
      */
     occupancy(callback) {
         const db = dbConnection.openDBConnection(databasePath);
-        const sql = `SELECT * FROM Occupancy 
+        const sql = `SELECT Occupancy.occupancydate,
+                            Occupancy.start_time,
+                            Occupancy.end_time,
+                            User.role,
+                            User.first_name,
+                            User.last_name,
+                            User.department,
+                            Rooms.description,
+                            Rooms.location,
+                            Rooms.area,
+                            Rooms.roomnumber,
+                            Status.status
+                        FROM Occupancy                           
                         JOIN User ON Occupancy.user_id = User.id
                         JOIN Rooms ON Occupancy.rooms_id = Rooms.id
                         JOIN Status ON Occupancy.status_id = Status.id`;
