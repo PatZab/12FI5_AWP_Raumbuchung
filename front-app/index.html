@@ -3,11 +3,13 @@
   <link rel="stylesheet" href="style\main.css">
 </head>
 <body>
-  <div class="login">
-		<h2>Userlogin</h2>
-    <input placeholder="Benutzername">
-		<input placeholder="Passwort">
-    <button>Login</button>
-  </div>
+  <form action="/login" method="POST">
+    <div class="login">
+      <h2>Userlogin</h2>
+      <input name="name" placeholder="Benutzername">
+      <input name="passwort" placeholder="Passwort">
+      <button type="submit">Login</button>
+    </div>
+  </form>
 </body>
 </html>
