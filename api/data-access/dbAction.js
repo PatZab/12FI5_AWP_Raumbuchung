@@ -26,6 +26,18 @@ const select = {
         dbConnection.closeDBConnection(db)
     },
 
+    loginData(userName, callback) {
+        const db = dbConnection.openDBConnection(databasePath);
+        const sql = `SELECT username, password WHERE username = ${userName}`;
+        db.all(sql, (err, rows) => {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null, rows)
+            }
+        });
+    },
+
     /**
      * Method for reading the whole table "Occupancy" with all linked tables joined
      * @param {callback} callback - Callback function for processing table data
