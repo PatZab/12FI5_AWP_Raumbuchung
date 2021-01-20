@@ -1,19 +1,26 @@
 const dbAction = require("../../data-access/dbAction");
 
-function passwordCheck(/*todo: input from request*/) {
-
+function passwordCheck(userName, passwordInput) {
+    var checkResult = false;
     //Reading login data from database
-    var test;
-    dbAction.select.loginData(/*todo: correct input from outside*/ 'ksteinam')
+    dbAction.select.loginData(userName)
     .then(
         (resolved) => {
-            console.log(resolved);
-            console.log(resolved[0].password)
+            let passwordDB = resolved[0].password;
+            if (passwordInput === passwordDB) {
+                console.log('Password Match!');
+                checkResult = true;
+            } else {
+                console.log('Password Mismatch!')
+                checkResult = false;
+            }
         }
     )
-        .catch((rejected) => {
-            console.log(rejected);
-        })
+    .catch((rejected) => {
+        console.log(rejected);
+    })
+
+    return checkResult;
 
 }
 
