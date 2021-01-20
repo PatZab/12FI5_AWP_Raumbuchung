@@ -26,18 +26,34 @@ const select = {
         dbConnection.closeDBConnection(db)
     },
 
-    loginData(userName, callback) {
-        const db = dbConnection.openDBConnection(databasePath);
-        const sql = `SELECT password FROM Login WHERE username=$userName`;
-        const params = {$userName: userName};
-        db.all(sql, params, (err, rows) => {
-            if (err) {
-                callback(err);
-            } else {
-                callback(null, rows)
-            }
-        });
-        dbConnection.closeDBConnection(db);
+    // loginData(userName, callback) {
+    //     const db = dbConnection.openDBConnection(databasePath);
+    //     const sql = `SELECT password FROM Login WHERE username=$userName`;
+    //     const params = {$userName: userName};
+    //     db.all(sql, params, (err, rows) => {
+    //         if (err) {
+    //             callback(err);
+    //         } else {
+    //             callback(null, rows)
+    //         }
+    //     });
+    //     dbConnection.closeDBConnection(db);
+    // },
+
+    loginData(userName) {
+        return new Promise((resolve, reject) => {
+            const db = dbConnection.openDBConnection(databasePath);
+            const sql = `SELECT password FROM Login WHERE username=$userName`;
+            const params = {$userName: userName};
+            db.all(sql, params, (err, rows) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(rows);
+                }
+            });
+            dbConnection.closeDBConnection(db);
+        })
     },
 
     /**
