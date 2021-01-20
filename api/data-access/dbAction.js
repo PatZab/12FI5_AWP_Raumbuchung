@@ -56,6 +56,22 @@ const select = {
         })
     },
 
+    // async loginData(userName) {
+    //         const db = dbConnection.openDBConnection(databasePath);
+    //         const sql = `SELECT password FROM Login WHERE username=$userName`;
+    //         const params = {$userName: userName};
+    //         db.all(sql, params,
+    //         (err, rows) => {
+    //             if (err) {
+    //                 dbConnection.closeDBConnection(db);
+    //                 return err;
+    //             } else {
+    //                 dbConnection.closeDBConnection(db);
+    //                 return rows;
+    //             }
+    //         })
+    // },
+
     /**
      * Method for reading the whole table "Occupancy" with all linked tables joined
      * @param {callback} callback - Callback function for processing table data

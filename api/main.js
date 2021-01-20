@@ -10,10 +10,6 @@ app.use(express.static('../front-app'));
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.get("/hallo", (req, res, next) => {
-    console.log("NICE")
-});
-
 //Request Logger
 app.use(morgan('combined'));
 
@@ -26,12 +22,5 @@ app.listen(PORT, () => {
     console.log(`Server is listening to port ${PORT}`);
 });
 
-// Login
-app.post("/login", (req, res) => {
-    console.log("Login pressed");
-    console.log("Name: " + req.body.user_name);
-    console.log("Passwort: " + req.body.user_passwort);
-    res.end();
-});
 
 
