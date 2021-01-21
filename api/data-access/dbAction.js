@@ -26,51 +26,21 @@ const select = {
         dbConnection.closeDBConnection(db)
     },
 
-    // loginData(userName, callback) {
-    //     const db = dbConnection.openDBConnection(databasePath);
-    //     const sql = `SELECT password FROM Login WHERE username=$userName`;
-    //     const params = {$userName: userName};
-    //     db.all(sql, params, (err, rows) => {
-    //         if (err) {
-    //             callback(err);
-    //         } else {
-    //             callback(null, rows)
-    //         }
-    //     });
-    //     dbConnection.closeDBConnection(db);
-    // },
-
     loginData(userName) {
         return new Promise((resolve, reject) => {
             const db = dbConnection.openDBConnection(databasePath);
             const sql = `SELECT password FROM Login WHERE username=$userName`;
             const params = {$userName: userName};
-            db.all(sql, params, (err, rows) => {
+            db.get(sql, params, (err, result) => {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve(rows);
+                    resolve(result);
                 }
             });
             dbConnection.closeDBConnection(db);
         })
     },
-
-    // async loginData(userName) {
-    //         const db = dbConnection.openDBConnection(databasePath);
-    //         const sql = `SELECT password FROM Login WHERE username=$userName`;
-    //         const params = {$userName: userName};
-    //         db.all(sql, params,
-    //         (err, rows) => {
-    //             if (err) {
-    //                 dbConnection.closeDBConnection(db);
-    //                 return err;
-    //             } else {
-    //                 dbConnection.closeDBConnection(db);
-    //                 return rows;
-    //             }
-    //         })
-    // },
 
     /**
      * Method for reading the whole table "Occupancy" with all linked tables joined
