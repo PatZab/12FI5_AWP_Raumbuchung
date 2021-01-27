@@ -8,7 +8,9 @@ loginRouter.use(bodyParser.urlencoded({extended: false}));
 loginRouter.post("/", (req, res, next) => {
     // console.log(req.body.user_name)
     // console.log(req.body.user_password)
-    passwordCheck(req.body.user_name, req.body.user_password).then((resolve) => {
+    let userNameInput = req.body.user_name;
+    let userPasswordInput = req.body.user_password;
+    passwordCheck(userNameInput, userPasswordInput).then((resolve) => {
         res.send(resolve);
     }).catch((error) => {
         console.log(error);

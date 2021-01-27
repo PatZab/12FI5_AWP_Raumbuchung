@@ -1,21 +1,21 @@
 const dbAction = require("../../data-access/dbAction");
 
-async function passwordCheck(userName, passwordInput) {
+async function passwordCheck(userNameInput, userPasswordInput) {
     // Reading login data from database
     try {
-        let dbResult = await dbAction.select.loginData(userName);
-        let passwordDB = dbResult.password;
+        let dbResult = await dbAction.select.loginData(userNameInput);
+        let userPasswordDB = dbResult.password;
         // console.log("Password in database: " + passwordDB)
         // console.log("Type: " + typeof passwordDB);
 
-        if (typeof passwordDB != 'string') {
+        if (typeof userPasswordDB != 'string') {
             console.log("Converting to string")
-            passwordDB = passwordDB.toString();
+            userPasswordDB = userPasswordDB.toString();
         }
 
         // console.log(typeof passwordDB)
 
-        if (passwordInput === passwordDB) {
+        if (userPasswordInput === userPasswordDB) {
             console.log('Password Match!');
             return true;
         } else {
@@ -23,8 +23,9 @@ async function passwordCheck(userName, passwordInput) {
             return false;
         }
     } catch (error) {
-        console.log(error);
-        await passwordCheck(userName, passwordInput);
+        console.error(error);
+        console.error("No user was found in database!")
+        await passwordCheck(userNameInput, userPasswordInput);
     }
 
 }

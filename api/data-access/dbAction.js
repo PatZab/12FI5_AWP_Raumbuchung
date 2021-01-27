@@ -8,29 +8,29 @@ const databasePath = './database/mydb.db' //todo: add database
 
 
 const select = {
-    /**
-     * Method for getting all rows and columns of a given database table
-     * @param {String} table - Database table
-     * @param {CallbackFunction} callback - Callback function for processing rows
-     */
-    allColumnsAllRowsPlain(table, callback) {
-        const db = dbConnection.openDBConnection(databasePath)
-        const sql = `SELECT * FROM ${table}`
-        db.all(sql, (err, rows) => {
-            if (err) {
-                callback(err)
-            } else {
-                callback(null, rows)
-            }
-        });
-        dbConnection.closeDBConnection(db)
-    },
+    // /**
+    //  * Method for getting all rows and columns of a given database table
+    //  * @param {String} table - Database table
+    //  * @param {CallbackFunction} callback - Callback function for processing rows
+    //  */
+    // allColumnsAllRowsPlain(table, callback) {
+    //     const db = dbConnection.openDBConnection(databasePath)
+    //     const sql = `SELECT * FROM ${table}`
+    //     db.all(sql, (err, rows) => {
+    //         if (err) {
+    //             callback(err)
+    //         } else {
+    //             callback(null, rows)
+    //         }
+    //     });
+    //     dbConnection.closeDBConnection(db)
+    // },
 
-    loginData(userName) {
+    loginData(userNameInput) {
         return new Promise((resolve, reject) => {
             const db = dbConnection.openDBConnection(databasePath);
             const sql = `SELECT password FROM Login WHERE username=$userName`;
-            const params = {$userName: userName};
+            const params = {$userName: userNameInput};
             db.get(sql, params, (err, result) => {
                 if (err) {
                     reject(err);
