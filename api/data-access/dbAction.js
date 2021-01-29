@@ -29,7 +29,7 @@ const select = {
     loginData(userNameInput) {
         return new Promise((resolve, reject) => {
             const db = dbConnection.openDBConnection(databasePath);
-            const sql = `SELECT password FROM Login WHERE username=$userName`;
+            const sql = `SELECT password FROM Logindata WHERE user_name=$userName`;
             const params = {$userName: userNameInput};
             db.get(sql, params, (err, result) => {
                 if (err) {
