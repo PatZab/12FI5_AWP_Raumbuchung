@@ -52,11 +52,11 @@ const select = {
             const sql = `SELECT Occ.date,
                                 Slots.start_time,
                                 Slots.end_time,
-                                Users.last_name,
-                                Rooms.location,
+                                Users.last_name AS booker,
+                                Rooms.location AS building,
                                 Rooms.room_number,
-                                Areas.name,
-                                Roomtypes.type       
+                                Areas.name AS area,
+                                Roomtypes.type AS room_type       
                          FROM Occupancies AS Occ
                          JOIN Slots ON Occ.slots_id = Slots.id
                          JOIN Users ON Occ.users_id = Users.id
