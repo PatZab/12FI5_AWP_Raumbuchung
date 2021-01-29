@@ -49,22 +49,20 @@ const select = {
     occupancy() {
         return new Promise((resolve, reject) => {
             const db = dbConnection.openDBConnection(databasePath);
-            const sql = `SELECT Occupancy.occupancydate,
-                            Occupancy.start_time,
-                            Occupancy.end_time,
-                            User.role,
-                            User.first_name,
-                            User.last_name,
-                            User.department,
-                            Rooms.description,
-                            Rooms.location,
-                            Rooms.area,
-                            Rooms.roomnumber,
-                            Status.status
-                            FROM Occupancy                           
-                            JOIN User ON Occupancy.user_id = User.id
-                            JOIN Rooms ON Occupancy.rooms_id = Rooms.id
-                            JOIN Status ON Occupancy.status_id = Status.id`;
+            const sql = `SELECT Occ.date,
+                                Slots.start_time,
+                                Slots.end_time,
+                                Users.last_name,
+                                Rooms.location,
+                                Rooms.room_number,
+                                Areas.name,
+                                Roomtypes.type       
+                         FROM Occupancies AS Occ
+                         JOIN Slots ON Occ.slots_id = Slots.id
+                         JOIN Users ON Occ.users_id = Users.id
+                         JOIN Rooms ON Occ.rooms_id = Rooms.id
+                         JOIN Areas ON Rooms.areas_id = Areas.id
+                         JOIN Roomtypes ON Rooms.roomtypes_id = Roomtypes.id;`;
             db.all(sql, (err, result) => {
                 if (err) {
                     reject(err);
