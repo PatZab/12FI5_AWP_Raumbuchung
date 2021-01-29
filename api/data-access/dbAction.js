@@ -46,9 +46,10 @@ const select = {
      * Method for reading the whole table "Occupancy" with all linked tables joined
      * @param {callback} callback - Callback function for processing table data
      * */
-    occupancy(callback) {
-        const db = dbConnection.openDBConnection(databasePath);
-        const sql = `SELECT Occupancy.occupancydate,
+    occupancy() {
+        return new Promise((resolve, reject) => {
+            const db = dbConnection.openDBConnection(databasePath);
+            const sql = `SELECT Occupancy.occupancydate,
                             Occupancy.start_time,
                             Occupancy.end_time,
                             User.role,
@@ -60,18 +61,20 @@ const select = {
                             Rooms.area,
                             Rooms.roomnumber,
                             Status.status
-                        FROM Occupancy                           
-                        JOIN User ON Occupancy.user_id = User.id
-                        JOIN Rooms ON Occupancy.rooms_id = Rooms.id
-                        JOIN Status ON Occupancy.status_id = Status.id`;
-        db.all(sql, (err, rows) => {
-            if (err) {
-                callback(err);
-            } else {
-                callback(null, rows)
-            }
+                            FROM Occupancy                           
+                            JOIN User ON Occupancy.user_id = User.id
+                            JOIN Rooms ON Occupancy.rooms_id = Rooms.id
+                            JOIN Status ON Occupancy.status_id = Status.id`;
+            db.all(sql, (err, result) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(result);
+                }
+
+            });
+            dbConnection.closeDBConnection(db);
         });
-        dbConnection.closeDBConnection(db);
     },
 
     /**
