@@ -8,25 +8,27 @@ const databasePath = './database/mydb.db' //todo: add database
 
 
 const select = {
-    // /**
-    //  * Method for getting all rows and columns of a given database table
-    //  * @param {String} table - Database table
-    //  * @param {CallbackFunction} callback - Callback function for processing rows
-    //  */
-    // allColumnsAllRowsPlain(table, callback) {
-    //     const db = dbConnection.openDBConnection(databasePath)
-    //     const sql = `SELECT * FROM ${table}`
-    //     db.all(sql, (err, rows) => {
-    //         if (err) {
-    //             callback(err)
-    //         } else {
-    //             callback(null, rows)
-    //         }
-    //     });
-    //     dbConnection.closeDBConnection(db)
-    // },
 
+    rooms() {
+        return new Promise((resolve, reject) => {
+            const db = dbConnection.openDBConnection(databasePath);
+            const sql = `SELECT Rooms.building, 
+                                Rooms.room_number, 
+                                Roomtypes.type, 
+                                Areas.name AS areaname
+                            FROM Rooms 
+                            JOIN Roomtypes ON Rooms.roomtypes_id=Roomtypes.id 
+                            JOIN Areas ON Rooms.areas_id=Areas.id;`;
+            db.all(sql, (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            })
 
+        })
+    },
 
     password(userNameInput) {
         return new Promise((resolve, reject) => {
@@ -55,7 +57,7 @@ const select = {
                                 Slots.start_time,
                                 Slots.end_time,
                                 Users.username AS booker,
-                                Rooms.location AS building,
+                                Rooms.building,
                                 Rooms.room_number,
                                 Areas.name AS area,
                                 Roomtypes.type AS room_type       
