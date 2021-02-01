@@ -26,10 +26,12 @@ const select = {
     //     dbConnection.closeDBConnection(db)
     // },
 
-    loginData(userNameInput) {
+
+
+    password(userNameInput) {
         return new Promise((resolve, reject) => {
             const db = dbConnection.openDBConnection(databasePath);
-            const sql = `SELECT password FROM Logindata WHERE user_name=$userName`;
+            const sql = `SELECT password FROM Users WHERE username=$userName`;
             const params = {$userName: userNameInput};
             db.get(sql, params, (err, result) => {
                 if (err) {
@@ -46,13 +48,13 @@ const select = {
      * Method for reading the whole table "Occupancy" with all linked tables joined
      * @param {callback} callback - Callback function for processing table data
      * */
-    occupancy() {
+    occupancies() {
         return new Promise((resolve, reject) => {
             const db = dbConnection.openDBConnection(databasePath);
             const sql = `SELECT Occ.date,
                                 Slots.start_time,
                                 Slots.end_time,
-                                Users.last_name AS booker,
+                                Users.username AS booker,
                                 Rooms.location AS building,
                                 Rooms.room_number,
                                 Areas.name AS area,
