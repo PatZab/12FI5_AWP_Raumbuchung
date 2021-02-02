@@ -100,7 +100,7 @@ const select = {
 };
 
 const insert = {
-    //todo add insert action ind dbAction.js
+    //todo add insert action ind databaseAction.js
 
 };
 

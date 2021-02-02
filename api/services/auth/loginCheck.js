@@ -1,4 +1,4 @@
-const dbAction = require("../../data-access/dbAction");
+const dbAction = require("../../data-access/databaseAction");
 
 async function passwordCheck(userNameInput, userPasswordInput) {
     // Reading login data from database
