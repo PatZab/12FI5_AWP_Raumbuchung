@@ -9,4 +9,10 @@ databaseReadRouter.get('/occupancies', (req, res) => {
         .catch((err) => {console.error(err)});
 });
 
+databaseReadRouter.get('/rooms', (req, res) => {
+    databaseAction.select.rooms()
+        .then(result => {res.send(result)})
+        .catch(err => {console.error(err)})
+});
+
 module.exports = databaseReadRouter;

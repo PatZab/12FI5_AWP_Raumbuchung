@@ -9,6 +9,13 @@ const databasePath = './database/mydb.db' //todo: add database
 
 const select = {
 
+    slots() {
+      return new Promise((resolve, reject) => {
+          const db = dbConnection.openDBConnection(databasePath);
+          const sql = `SELECT * FROM `;
+      })
+    },
+
     rooms() {
         return new Promise((resolve, reject) => {
             const db = dbConnection.openDBConnection(databasePath);
