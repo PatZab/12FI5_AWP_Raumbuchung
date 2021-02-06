@@ -28,6 +28,7 @@ const select = {
                     resolve(results);
                 }
             })
+            dbConnection.closeDBConnection(db);
 
         });
     },
@@ -43,6 +44,7 @@ const select = {
                   resolve(results);
               }
           });
+          dbConnection.closeDBConnection(db);
       })
     },
 
@@ -64,6 +66,7 @@ const select = {
                     resolve(results);
                 }
             })
+            dbConnection.closeDBConnection(db);
 
         })
     },
@@ -138,6 +141,23 @@ const select = {
 };
 
 const insert = {
+
+    occupancies(date, slotsId, roomsId, usersId) {
+        const db = dbConnection.openDBConnection(databasePath);
+        const sql = `INSERT INTO Occupancies (date, slots_id, rooms_id, users_id) VALUES ($date, $slots_id, $rooms_id, $users_id);`;
+        const params = {
+            $date: date,
+            $slots_id: slotsId,
+            $rooms_id: roomsId,
+            $users_id: usersId
+        };
+        db.run(sql, params, (err) => {
+            if (err) {
+                console.error(err);
+            }
+        });
+        dbConnection.closeDBConnection(db);
+    }
 
 
 };

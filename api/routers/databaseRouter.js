@@ -1,8 +1,10 @@
 const express = require('express');
 const databaseRouter = express.Router();
-const DBReadRouter = require('./databaseReadRouter')
+const dbReadRouter = require('./databaseReadRouter');
+const dbInsertRouter = require('./databaseInsertRouter');
 
-databaseRouter.use('/read', DBReadRouter);
+databaseRouter.use('/read', dbReadRouter);
+databaseRouter.use('/insert', dbInsertRouter)
 
 module.exports = databaseRouter;
 
