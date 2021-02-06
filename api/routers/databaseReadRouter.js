@@ -15,4 +15,16 @@ databaseReadRouter.get('/rooms', (req, res) => {
         .catch(err => {console.error(err)})
 });
 
+databaseReadRouter.get('/slots', (req, res) => {
+    databaseAction.select.slots()
+        .then(result => res.send(result))
+        .catch(err => {console.error(err)})
+})
+
+databaseReadRouter.get('/users', (req, res) => {
+    databaseAction.select.users()
+        .then(result => res.send(result))
+        .catch(err => console.error(err));
+});
+
 module.exports = databaseReadRouter;

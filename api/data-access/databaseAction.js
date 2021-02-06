@@ -4,22 +4,53 @@
  */
 
 const sqlite3 = require('sqlite3')
-const databasePath = './database/mydb.db' //todo: add database
+const databasePath = './database/mydb.db'
 
 
 const select = {
 
+    users() {
+        return new Promise((resolve, reject) => {
+            const db = dbConnection.openDBConnection(databasePath);
+            const sql = `SELECT Users.id,
+                                Users.first_name,
+                                Users.last_name,
+                                Users.username,
+                                Roles.role,
+                                Departments.department
+                            FROM Users
+                            JOIN Roles ON Users.roles_id = Roles.id
+                            JOIN Departments On Users.departments_id = Departments.id`;
+            db.all(sql, (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            })
+
+        });
+    },
+
     slots() {
       return new Promise((resolve, reject) => {
           const db = dbConnection.openDBConnection(databasePath);
-          const sql = `SELECT * FROM `;
+          const sql = `SELECT * FROM Slots`;
+          db.all(sql, (err, results) => {
+              if (err) {
+                  reject(err);
+              } else {
+                  resolve(results);
+              }
+          });
       })
     },
 
     rooms() {
         return new Promise((resolve, reject) => {
             const db = dbConnection.openDBConnection(databasePath);
-            const sql = `SELECT Rooms.building, 
+            const sql = `SELECT Rooms.id,
+                                Rooms.building, 
                                 Rooms.room_number, 
                                 Roomtypes.type, 
                                 Areas.name AS areaname
@@ -107,7 +138,7 @@ const select = {
 };
 
 const insert = {
-    //todo add insert action ind databaseAction.js
+
 
 };
 

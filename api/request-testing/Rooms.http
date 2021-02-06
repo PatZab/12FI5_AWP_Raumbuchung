@@ -1,0 +1,4 @@
+GET http://localhost:3080/api/database/read/rooms
+Accept: application/json
+
+###

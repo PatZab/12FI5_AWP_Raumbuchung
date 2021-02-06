@@ -1,0 +1,4 @@
+GET http://localhost:3080/api/database/read/slots
+Accept: application/json
+
+###
