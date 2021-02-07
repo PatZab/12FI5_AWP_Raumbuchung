@@ -215,6 +215,8 @@ const insert = {
         db.run(sql, params, (err) => {
             if (err) {
                 console.error(err);
+            } else {
+                console.log("Inserted new data into Occupancies.")
             }
         });
         dbConnection.closeDBConnection(db);
@@ -250,6 +252,28 @@ const update = {
 };
 
 const remove = {
+
+    occupancies(date, startTime, building, roomNumber ) {
+        const db = dbConnection.closeDBConnection(databasePath);
+        const sql = `DELETE FROM Occupancies 
+                            WHERE date=$date
+                                AND Occupancies.slots_id= 
+                                    (SELECT id FROM Slots WHERE start_time=$start_time)
+                                AND Occupancies.rooms_id=
+                                    (SELECT id FROM Rooms WHERE building=$building AND room_number=$room_number);`;
+        const params = { $date: date,
+                         $start_time: startTime,
+                         $building: building,
+                         $room_number: roomNumber};
+        db.run(sql, params, (err) => {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log("Removed occupancy!")
+            }
+        });
+
+    },
     /**
      * Method deletes a specific row in a table
      * @param {String} table
