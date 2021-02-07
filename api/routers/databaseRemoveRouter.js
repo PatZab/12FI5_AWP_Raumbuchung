@@ -11,6 +11,11 @@ databaseRemoveRouter.post('/occupancies', (req, res) => {
     let building = req.body.building;
     let roomNumber = req.body.room_number;
     databaseAction.remove.occupancies(date, startTime, building, roomNumber);
+});
+
+databaseRemoveRouter.post('/users', (req, res) => {
+    let userName = req.body.username;
+    databaseAction.remove.users(userName);
 })
 
 

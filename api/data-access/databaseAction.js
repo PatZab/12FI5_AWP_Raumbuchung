@@ -294,7 +294,21 @@ const remove = {
         dbConnection.closeDBConnection(db);
     },
 
-
+    users(userName) {
+        const db = dbConnection.openDBConnection(databasePath);
+        const sql = `DELETE FROM Users WHERE username=$username`;
+        const params = {
+            $username: userName
+        };
+        db.run(sql, params, (err) => {
+            if (err) {
+                console.error(err.message);
+            } else {
+                console.log("User has been deleted!");
+            }
+        });
+        dbConnection.closeDBConnection(db);
+    }
 
 };
 
