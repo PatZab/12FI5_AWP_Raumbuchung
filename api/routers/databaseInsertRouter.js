@@ -10,7 +10,7 @@ databaseInsertRouter.post('/occupancies', (req, res) => {
     let slotsId = req.body.slotsId;
     let roomsId = req.body.roomsId;
     let usersId = req.body.usersId;
-    console.log(date, slotsId, roomsId, usersId);
+    //console.log(date, slotsId, roomsId, usersId);
 
     databaseAction.insert.occupancies(date, slotsId, roomsId, usersId);
 });

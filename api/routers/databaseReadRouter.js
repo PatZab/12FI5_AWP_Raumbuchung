@@ -26,4 +26,28 @@ databaseReadRouter.get('/users', (req, res) => {
         .catch(err => console.error(err));
 });
 
+databaseReadRouter.get('/roomtypes', (req, res) => {
+    databaseAction.select.roomtypes()
+        .then(result => res.send(result))
+        .catch(err => console.error(err));
+});
+
+databaseReadRouter.get('/areas', (req, res) => {
+    databaseAction.select.areas()
+        .then(result => res.send(result))
+        .catch(err => console.error(err));
+});
+
+databaseReadRouter.get('/departments', (req, res) => {
+    databaseAction.select.departments()
+        .then(result => res.send(result))
+        .catch(err => console.error(err));
+});
+
+databaseReadRouter.get('/roles', (req, res) => {
+    databaseAction.select.roles()
+        .then(result => res.send(result))
+        .catch(err => console.error(err));
+});
+
 module.exports = databaseReadRouter;

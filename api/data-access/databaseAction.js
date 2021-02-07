@@ -6,8 +6,69 @@
 const sqlite3 = require('sqlite3')
 const databasePath = './database/mydb.db'
 
-
+//Todo: DRY!
 const select = {
+
+    roles() {
+        return new Promise((resolve, reject) => {
+            const db = dbConnection.openDBConnection(databasePath);
+            const sql = `SELECT * FROM Roles`;
+            db.all(sql, (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+            dbConnection.closeDBConnection(db);
+        });
+    },
+
+
+    departments() {
+        return new Promise((resolve, reject) => {
+            const db = dbConnection.openDBConnection(databasePath);
+            const sql = `SELECT * FROM Departments`;
+            db.all(sql, (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+            dbConnection.closeDBConnection(db);
+        });
+    },
+
+    areas() {
+        return new Promise((resolve, reject) => {
+            const db = dbConnection.openDBConnection(databasePath);
+            const sql = `SELECT * FROM Areas`;
+            db.all(sql, (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+            dbConnection.closeDBConnection(db);
+        });
+    },
+
+    roomtypes() {
+        return new Promise((resolve, reject) => {
+            const db = dbConnection.openDBConnection(databasePath);
+            const sql = `SELECT * FROM Roomtypes`;
+            db.all(sql, (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+            dbConnection.closeDBConnection(db);
+        });
+    },
 
     users() {
         return new Promise((resolve, reject) => {
@@ -157,7 +218,9 @@ const insert = {
             }
         });
         dbConnection.closeDBConnection(db);
-    }
+    },
+
+
 
 
 };
