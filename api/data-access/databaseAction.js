@@ -222,8 +222,27 @@ const insert = {
         dbConnection.closeDBConnection(db);
     },
 
-
-
+    users(firstName, lastName, password, userName, rolesId, departmentsId) {
+        const db = dbConnection.closeDBConnection(databasePath);
+        const sql = `INSERT INTO Users (first_name, last_name, password, username, roles_id, departments_id) 
+                        VALUES ($first_name, $last_name, $password, $username, $roles_id, $departments_id);`;
+        const params = {
+            $first_name: firstName,
+            $last_name: lastName,
+            $password: password,
+            $username: userName,
+            $roles_id: rolesId,
+            $departments_id: departmentsId
+        };
+        db.run(sql, params, (err) => {
+            if (err) {
+                console.error(err.message);
+            } else {
+                console.log("Inserted new user.");
+            }
+        });
+        dbConnection.closeDBConnection(db);
+    }
 
 };
 
@@ -267,33 +286,16 @@ const remove = {
                          $room_number: roomNumber};
         db.run(sql, params, (err) => {
             if (err) {
-                console.error(err);
+                console.error(err.message);
             } else {
                 console.log("Removed occupancy!")
             }
         });
-
-    },
-    /**
-     * Method deletes a specific row in a table
-     * @param {String} table
-     * @param {String} conditionColumn
-     * @param {String} condition
-     * @return {void}
-     */
-    singleEntry(table, conditionColumn, condition) {
-        const db = dbConnection.openDBConnection(databasePath)
-        const sql = `DELETE FROM ${table} WHERE ${conditionColumn} = $condition`
-        const params = {$condition: condition}
-        db.run(sql, params, (err) => {
-            if (err) {
-                console.error(err.message)
-            } else {
-                console.log(`Deleted row from ${table}!`)
-            }
-        })
         dbConnection.closeDBConnection(db);
-    }
+    },
+
+
+
 };
 
 const dbConnection = {

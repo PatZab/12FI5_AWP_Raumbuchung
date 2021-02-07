@@ -15,7 +15,14 @@ databaseInsertRouter.post('/occupancies', (req, res) => {
     databaseAction.insert.occupancies(date, slotsId, roomsId, usersId);
 });
 
-
-
+databaseInsertRouter.post('/users', (req, res) => {
+    let firstName = req.body.first_name;
+    let lastName = req.body.last_name;
+    let password = req.body.password;
+    let userName = req.body.username;
+    let rolesId = req.body.roles_id;
+    let departmentsId = req.body.departments_id;
+    databaseAction.insert.users(firstName, lastName, password, userName, rolesId, departmentsId);
+});
 
 module.exports = databaseInsertRouter;
