@@ -5,7 +5,10 @@ const databaseAction = require('../data-access/databaseAction.js');
 
 databaseRemoveRouter.use(bodyParser.urlencoded({extended: false}));
 
+databaseRemoveRouter.use(express.json());
+
 databaseRemoveRouter.post('/occupancies', (req, res) => {
+    console.log(req.body.date);
     let date = req.body.date;
     let startTime = req.body.start_time;
     let building = req.body.building;
@@ -17,10 +20,5 @@ databaseRemoveRouter.post('/users', (req, res) => {
     let userName = req.body.username;
     databaseAction.remove.users(userName);
 })
-
-
-
-
-
 
 module.exports = databaseRemoveRouter

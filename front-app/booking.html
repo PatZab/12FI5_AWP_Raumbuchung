@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="style\main.css">
+  <title>Buchung</title>
+</head>
+<body>
+    <h1 class="bookingHeadline">Termin buchen</h1>
+    <form id="formBooking">
+        <div>
+           <h2>Datum</h2> 
+            <input id="date" type="date" required >
+        </div>
+        <div>
+            <h2>Raum</h2>
+            <select id="room" class="room" required>
+                <option id="1">A 101</option>
+                <option id="2">A 110</option>
+                <option id="3">B 404</option>
+                <option id="4">B 205</option>
+                <option id="5">A 308</option>
+            </select> 
+        </div>
+        <div>
+            <h2>Uhrzeit</h2>
+            <select id="slot" class="slots" required>
+                <option id="1">08:00 - 08:45 Uhr</option>
+                <option id="2">08:45 - 09:30 Uhr</option>
+                <option id="3">09:30 - 10:15 Uhr</option>
+                <option id="4">10:35 - 11:20 Uhr</option>
+                <option id="5">11:20 - 12:05 Uhr</option>
+                <option id="6">12:05 - 12:50 Uhr</option>
+                <option id="7">13:35 - 14:20 Uhr</option>
+                <option id="8">14:20 - 15:05 Uhr</option>
+                <option id="9">15:05 - 15:50 Uhr</option>
+            </select>
+        </div>
+        <button id="submitFormBtn" type="button">Termin buchen</button>
+    </form>
+</body>
+</html>
+
+<script type="text/javascript" src="js\booking.js"></script>

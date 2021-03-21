@@ -1,4 +1,6 @@
+
 body {
+    min-height: 100;
     font-family: Arial, Helvetica, sans-serif;
     background-image: url(../images/Klassenzimmer.jpeg);
     background-size: cover;
@@ -13,9 +15,21 @@ button {
     background: #0040FF;
 }
 
+.tablerow {
+    background: rgb(0, 64, 255, 0.3);
+    color: black;
+}
+.tablerow td {
+    margin: 20px;
+}
+.tablerow.header {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 table {
     margin-top: 20px;
-    color: white;
+    color: black;
 }
 
 .login button {
@@ -23,9 +37,23 @@ table {
 }
 
 .logout_btn {
+    position: absolute;
+    right: 0;
     width: 120px;
     align-self: flex-end;
     margin-right: 20px;
+}
+.bookingHeadline{
+    margin-top: 120px;
+}
+.greeting {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.greeting p {
+    font-size: 2em;
+    margin-left: 10px;
 }
 .book_btn {
     width: 160px;
@@ -54,7 +82,7 @@ table {
 }
 
 h2 {
-    color: white;
+    color: black;
 }
 
 .login input {

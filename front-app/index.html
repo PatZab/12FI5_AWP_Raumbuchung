@@ -4,13 +4,15 @@
   <title>Raumbuchung</title>
 </head>
 <body>
-  <form action="/api/auth/login" method="POST">
+  <form id="myForm">
     <div class="login">
       <h2>Userlogin</h2>
-      <input name="user_name" placeholder="Benutzername">
-      <input type="password" name="user_password" placeholder="Passwort">
-      <button type="submit">Login</button>
+      <input name="user_name" id="user_name" placeholder="Benutzername" required>
+      <input type="password" id="user_password" name="user_password" placeholder="Passwort" required>
+      <button id="submitBtn" type="button">Login</button>
     </div>
   </form>
 </body>
 </html>
+
+<script type="text/javascript" src="js\index.js"></script>

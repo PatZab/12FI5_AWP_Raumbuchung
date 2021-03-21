@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="style\main.css">
+  <title>Home</title>
+</head>
+<body>
+   <button id="logout" class="logout_btn">Logout</button> 
+    <div class="greeting">
+    <h1>Hallo</h1>
+    <p id="first_name"></p><p id="last_name"></p>
+    </div>
+    <h3>Meine Termine</h3>
+    <table >
+        <tbody id="myData">
+        <tr class="tablerow header">
+            <th>Datum</th>
+            <th>Beginn</th>
+            <th>Ende</th>
+            <th>Geb&auml;ude</th> 
+            <th>Raumnummer</th>  
+        </tr>
+    </tbody>
+    </table>
+   <button onclick="window.location.href='booking.html'">Termin buchen</button>
+</body>
+</html>
+
+<script type="text/javascript" src="js\home.js"></script>
