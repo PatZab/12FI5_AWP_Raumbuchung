@@ -8,7 +8,6 @@ databaseRemoveRouter.use(bodyParser.urlencoded({extended: false}));
 databaseRemoveRouter.use(express.json());
 
 databaseRemoveRouter.post('/occupancies', (req, res) => {
-    console.log(req.body.date);
     let date = req.body.date;
     let startTime = req.body.start_time;
     let building = req.body.building;

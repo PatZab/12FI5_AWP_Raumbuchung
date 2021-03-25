@@ -15,7 +15,6 @@ myForm.addEventListener('click', async function(e){
     }
     const res = await fetch('/api/auth/login', options);
     const res_data = await res.json();
-    console.log(res_data.login);
     if (res_data.login == false){
         alert("Falsche Anmeldedaten");
     }

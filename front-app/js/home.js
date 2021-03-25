@@ -1,5 +1,4 @@
 const user_name = sessionStorage.getItem('name');
-//document.getElementById('logout').addEventListener('click',logout());
 
 fetch('/api/database/read/users')
 .then(function(response){

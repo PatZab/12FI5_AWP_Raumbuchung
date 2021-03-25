@@ -1,14 +1,18 @@
-
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 body {
-    min-height: 100;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url(../images/Klassenzimmer.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 button {
-    margin-top: 20px;
+    margin-top: 12px;
     padding: 10px 35px;
     border: none;
     color: white;
@@ -37,15 +41,13 @@ table {
 }
 
 .logout_btn {
-    position: absolute;
+    float: right;
     right: 0;
     width: 120px;
     align-self: flex-end;
     margin-right: 20px;
 }
-.bookingHeadline{
-    margin-top: 120px;
-}
+
 .greeting {
     display: flex;
     text-align: center;
@@ -114,4 +116,21 @@ h2 {
 .booking table {
     width: 500px;
     align-self: flex-end;
+}
+
+.outline {
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+    height: 100%;
+}
+
+.content {
+    background-color: white;
+    margin: 15px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 400px;
 }

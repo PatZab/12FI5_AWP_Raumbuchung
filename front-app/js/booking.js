@@ -26,8 +26,5 @@ submitBtn.addEventListener('click', async function() {
     const res = await fetch('/api/database/insert/occupancies', options) 
     .then(response => response.json())
     .then(data => alert("Buchung erfolgreich"));
-
-    
-
 });
 
